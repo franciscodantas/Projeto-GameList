@@ -14,23 +14,30 @@ public class Game implements Serializable {
     private Long id;
     private String title;
 
+    private Double score;
+
     @Column (name = "game_year")
     private Integer year;
     private String genre;
-    private String platform;
+    private String platforms;
     private String imgUrl;
+
+    @Column(columnDefinition = "TEXT")
     private String shortDescription;
+
+    @Column(columnDefinition = "TEXT")
     private String longDescription;
 
     public Game() {
     }
 
-    public Game(Long id, String title, Integer year, String genre, String platform, String imgUrl, String shortDescription, String longDescription) {
+    public Game(Long id, String title, Integer year, String genre, String platform, Double score, String imgUrl, String shortDescription, String longDescription) {
         this.id = id;
+        this.score = score;
         this.title = title;
         this.year = year;
         this.genre = genre;
-        this.platform = platform;
+        this.platforms = platform;
         this.imgUrl = imgUrl;
         this.shortDescription = shortDescription;
         this.longDescription = longDescription;
@@ -69,11 +76,19 @@ public class Game implements Serializable {
     }
 
     public String getPlatform() {
-        return platform;
+        return platforms;
     }
 
     public void setPlatform(String platform) {
-        this.platform = platform;
+        this.platforms = platform;
+    }
+
+    public Double getScore() {
+        return score;
+    }
+
+    public void setScore(Double score) {
+        this.score = score;
     }
 
     public String getImgUrl() {
