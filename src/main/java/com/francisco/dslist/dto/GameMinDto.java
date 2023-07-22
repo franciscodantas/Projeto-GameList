@@ -1,6 +1,7 @@
 package com.francisco.dslist.dto;
 
 import com.francisco.dslist.entities.Game;
+import com.francisco.dslist.projections.GameMinProjection;
 import jakarta.persistence.Column;
 
 public class GameMinDto {
@@ -15,6 +16,14 @@ public class GameMinDto {
     public GameMinDto(){}
 
     public GameMinDto(Game entity){
+        this.id = entity.getId();
+        this.imgUrl = entity.getImgUrl();
+        this.shortDescription = entity.getShortDescription();
+        this.year = entity.getYear();
+        this.title = entity.getTitle();
+    }
+
+    public GameMinDto(GameMinProjection entity){
         this.id = entity.getId();
         this.imgUrl = entity.getImgUrl();
         this.shortDescription = entity.getShortDescription();
